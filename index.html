@@ -166,9 +166,8 @@ window.onerror=function(msg){
 </div>
 
 <script>
-// ⚠️ ⚠️ ⚠️ PEGUE AQUÍ LA URL NUEVA de la entrevista (termina en /exec) ⚠️ ⚠️ ⚠️
-// ⚠️ NO use la URL del cuestionario de estudiantes: son sistemas separados
-var URL_SCRIPT = 'PEGA_AQUI_LA_URL_NUEVA_DE_LA_ENTREVISTA';
+// ✅ URL del receptor de la ENTREVISTA ya incrustada — NO MODIFICAR ESTA LÍNEA
+var URL_SCRIPT = 'https://script.google.com/macros/s/AKfycbwq5c6vo_D_e4bW-vssWL1bno73mX0_rmdRYxcMI3AXT1kL_02tWiG4-JfuPi4MdQ7j/exec';
 
 // ════════ DIMENSIÓN I: Caracterización del docente ════════
 var CARACTERIZACION = [
@@ -258,7 +257,6 @@ function construirFormulario(){
   var form = document.getElementById('formulario');
   var h = '';
 
-  // Dimensión I
   h += '<div class="dimension"><div class="dimension-cabecera"><h3>Dimensión I. Caracterización del docente</h3><p class="nota">Esta dimensión corresponde a datos descriptivos del docente participante.</p></div><div class="dimension-cuerpo">';
   CARACTERIZACION.forEach(function(d){
     h += '<div class="campo" id="campo-'+d.id+'"><p class="campo-etiqueta">'+esc(d.etiqueta)+(d.obligatoria?' <span class="req">*</span>':'')+'</p>';
@@ -278,7 +276,6 @@ function construirFormulario(){
   });
   h += '</div></div>';
 
-  // Dimensiones II a X
   PREGUNTAS.forEach(function(dim){
     h += '<div class="dimension"><div class="dimension-cabecera"><h3>Dimensión '+dim.num+'. '+esc(dim.titulo)+'</h3>';
     if(dim.nota) h += '<p class="nota">'+esc(dim.nota)+'</p>';
@@ -296,7 +293,6 @@ function construirFormulario(){
   form.innerHTML = h;
 }
 
-// ---------- Progreso ----------
 function totalRequeridas(){
   var t = 0;
   CARACTERIZACION.forEach(function(d){ if(d.obligatoria) t++; });
@@ -323,7 +319,6 @@ function actualizarProgreso(){
   document.getElementById('progreso-relleno').style.width = Math.round(hechas/total*100) + '%';
 }
 
-// ---------- Validación ----------
 function marcar(div, ok){ div.classList.toggle('invalida', !ok); }
 function validar(){
   var primera = null;
@@ -352,7 +347,6 @@ function validar(){
   return true;
 }
 
-// ---------- Recolección ----------
 function recoger(){
   var r = {};
   CARACTERIZACION.forEach(function(d){
@@ -375,7 +369,6 @@ function construirClave(){
   return c;
 }
 
-// ---------- Borrador automático ----------
 function guardarBorrador(){
   clearTimeout(temporizador);
   temporizador = setTimeout(function(){
@@ -413,7 +406,6 @@ function restaurarBorrador(){
   }catch(e){}
 }
 
-// ---------- Envío ----------
 function enviar(e){
   e.preventDefault();
   if(URL_SCRIPT.indexOf('PEGA_AQUI')!==-1){
@@ -443,7 +435,6 @@ function enviar(e){
   });
 }
 
-// ---------- Inicio ----------
 document.addEventListener('DOMContentLoaded', function(){
   construirFormulario();
   restaurarBorrador();
