@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrevista: Experiencias de docentes sobre las SPA como CSC — Miguel Ángel Orrego Rodríguez</title>
+<style>
+:root{--primario:#065f46;--primario2:#059669;--suave:#ecfdf5;--exito:#059669;--error:#dc2626;--gris:#64748b;--borde:#cbd5e1;--fondo:#eef2f7}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--fondo);color:#1e293b;padding:12px;line-height:1.55}
+.contenedor{max-width:820px;margin:0 auto}
+header{background:linear-gradient(140deg,#065f46,#0d9488);color:#fff;border-radius:14px 14px 0 0;padding:26px 22px;text-align:center}
+header .linea{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;opacity:.85}
+header .investigador{font-size:1.15rem;font-weight:700;margin-top:6px}
+header .cargo{font-size:.85rem;opacity:.9;margin-bottom:14px}
+header h1{font-size:1rem;font-weight:600;line-height:1.45;border-top:1px solid rgba(255,255,255,.3);padding-top:14px}
+.tarjeta{background:#fff;border-radius:0 0 14px 14px;box-shadow:0 2px 12px rgba(15,23,42,.12)}
+.seccion{padding:24px 22px}
+.seccion h2{font-size:1.1rem;margin-bottom:12px;color:var(--primario)}
+.intro p{margin-bottom:12px;font-size:.94rem;text-align:justify}
+.derechos{margin:12px 0 6px 20px;font-size:.92rem}
+.derechos li{margin-bottom:6px}
+.tiempo{display:inline-block;background:#fef3c7;color:#92400e;padding:6px 12px;border-radius:20px;font-size:.85rem;font-weight:600;margin:10px 0}
+.contacto-previo{font-size:.82rem;color:var(--gris);margin-top:14px;border-top:1px solid var(--borde);padding-top:10px}
+.consentimiento{display:flex;gap:10px;align-items:flex-start;background:var(--suave);border:1.5px solid var(--primario2);border-radius:10px;padding:14px;margin:16px 0;font-weight:600;cursor:pointer;font-size:.95rem}
+.consentimiento input{width:20px;height:20px;accent-color:var(--primario);flex-shrink:0;margin-top:2px}
+.sello-listo{display:none;background:#d1fae5;color:#065f46;border:1px solid #6ee7b7;border-radius:8px;padding:8px 14px;font-size:.85rem;font-weight:600;margin-bottom:12px;text-align:center}
+.btn{display:block;width:100%;padding:14px;border:none;border-radius:10px;font-size:1.02rem;font-weight:700;cursor:pointer}
+.btn-primario{background:var(--primario);color:#fff}
+.btn-primario:hover:enabled{background:#064e3b}
+.btn:disabled{background:#94a3b8;cursor:not-allowed}
+.barra-fija{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--borde);padding:10px 22px}
+.progreso-info{display:flex;justify-content:space-between;font-size:.8rem;color:var(--gris);margin-bottom:6px;gap:10px}
+.mini-leyenda{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.progreso-pista{height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+.progreso-relleno{height:100%;width:0;background:linear-gradient(90deg,var(--primario2),#0d9488);border-radius:4px;transition:width .3s}
+.aviso-borrador{display:none;background:#e0f2fe;border:1px solid #7dd3fc;color:#075985;border-radius:8px;padding:8px 14px;font-size:.85rem;margin:0 0 14px 0;text-align:center}
+.aviso-obligatorio{background:#fef2f2;border:1.5px solid #fecaca;color:#991b1b;border-radius:8px;padding:10px 14px;font-size:.9rem;font-weight:600;margin:0 0 16px 0;text-align:center}
+.instrucciones{background:var(--suave);border-radius:10px;padding:14px 16px;margin:0 0 16px 0;font-size:.9rem}
+.dimension{border:1px solid var(--borde);border-radius:12px;margin:18px 0;overflow:hidden;background:#fff}
+.dimension-cabecera{background:#ecfdf5;padding:12px 16px;border-bottom:1px solid var(--borde)}
+.dimension-cabecera h3{font-size:.98rem;color:var(--primario)}
+.nota{font-size:.8rem;color:var(--gris);font-style:italic;margin-top:6px;text-align:justify}
+.dimension-cuerpo{padding:6px 16px 14px}
+.campo{padding:14px 0;border-bottom:1px dashed var(--borde)}
+.campo:last-child{border-bottom:none}
+.campo-etiqueta{font-weight:600;font-size:.95rem;margin-bottom:10px}
+.req{color:var(--error)}
+.opciones{display:flex;flex-wrap:wrap;gap:8px}
+.opcion{display:flex;align-items:center;gap:8px;border:1.5px solid var(--borde);border-radius:999px;padding:8px 14px;cursor:pointer;font-size:.9rem;background:#fff;transition:.15s}
+.opcion:hover{border-color:var(--primario2)}
+.opcion input{accent-color:var(--primario);width:16px;height:16px}
+.opcion-seleccionada{background:var(--suave);border-color:var(--primario2)}
+input[type=text],textarea{width:100%;padding:11px 13px;border:1.5px solid var(--borde);border-radius:8px;font-size:.95rem;font-family:inherit}
+textarea{resize:vertical;min-height:100px}
+input:focus,textarea:focus{outline:none;border-color:var(--primario2);box-shadow:0 0 0 3px rgba(5,150,105,.15)}
+.item{padding:14px 0;border-bottom:1px dashed var(--borde)}
+.item:last-child{border-bottom:none}
+.item-num{font-weight:800;color:var(--primario);margin-right:4px}
+.sonda{background:#fffbeb;border-left:3px solid #f59e0b;border-radius:0 8px 8px 0;padding:10px 12px;font-size:.85rem;color:#92400e;margin-bottom:10px;text-align:justify}
+.error-msg{display:none;color:var(--error);font-size:.82rem;margin-top:8px}
+.invalida .error-msg{display:block}
+.invalida .campo-etiqueta,.invalida .item-texto{color:var(--error)}
+.gracias{text-align:center;padding:40px 24px}
+.gracias .icono{font-size:3.2rem}
+.gracias h2{color:var(--exito);margin:10px 0}
+.contacto{margin-top:18px;background:#f8fafc;border:1px solid var(--borde);border-radius:10px;padding:16px;font-size:.9rem;display:inline-block;text-align:left;line-height:1.7}
+@media(max-width:480px){
+body{padding:6px}
+.seccion,.barra-fija{padding-left:14px;padding-right:14px}
+.seccion{padding-top:18px;padding-bottom:18px}
+.mini-leyenda{display:none}
+header{padding:20px 14px}
+}
+</style>
+</head>
+<body>
+<script>
+window.onerror=function(msg){
+  var d=document.createElement('div');
+  d.style.cssText='background:#dc2626;color:#fff;padding:10px;font-size:13px;position:fixed;top:0;left:0;right:0;z-index:9999;text-align:center';
+  d.textContent='ERROR EN EL CODIGO: '+msg+' | Recopie el archivo completo desde el chat (no use Word).';
+  document.body.appendChild(d);
+};
+</script>
+
+<div class="contenedor">
+
+  <header>
+    <p class="linea">Universidad de Antioquia · Investigación doctoral</p>
+    <p class="investigador">MIGUEL ÁNGEL ORREGO RODRÍGUEZ</p>
+    <p class="cargo">Investigador responsable — Aspirante a Doctorado</p>
+    <h1>Experiencias de docentes de Química Orgánica y Bioquímica y sus percepciones acerca de la integración de la química de las sustancias psicoactivas (SPA) más comunes como cuestiones sociocientíficas en el currículo universitario</h1>
+  </header>
+
+  <div class="tarjeta">
+
+    <!-- VISTA 1: CONSENTIMIENTO -->
+    <section class="seccion" id="pantalla-consentimiento">
+      <div class="sello-listo" id="sello-listo">✓ Sistema listo — puede responder la entrevista</div>
+      <div class="intro">
+        <h2>Estimado(a) docente:</h2>
+        <p>Esta entrevista semiestructurada tiene como propósito identificar prácticas, experiencias y estrategias pedagógicas desarrolladas en la enseñanza de la Química Orgánica y la Bioquímica, así como las perspectivas de integración de la química de las sustancias psicoactivas (SPA) legales e ilegales de mayor prevalencia —<em>Cannabis sativa</em>, alcohol etílico, <em>Nicotiana tabacum</em> y cocaína— como cuestiones sociocientíficas en el currículo universitario.</p>
+        <p><strong>Sus derechos como participante:</strong></p>
+        <ul class="derechos">
+          <li>Su participación es voluntaria y puede retirarse en cualquier momento.</li>
+          <li>La información recolectada será tratada de manera confidencial y anónima.</li>
+          <li>Los datos serán utilizados exclusivamente con fines académicos e investigativos.</li>
+          <li>Sus respuestas serán registradas mediante este formulario en línea y posteriormente analizadas de forma literal.</li>
+          <li>Las respuestas y datos asociados serán anonimizados, almacenados de forma segura en repositorios institucionales cifrados y conservados por un plazo de 5 años para fines exclusivos de auditoría académica.</li>
+        </ul>
+        <span class="tiempo">⏱️ Tiempo estimado de respuesta: 45–60 minutos</span>
+
+        <label class="consentimiento">
+          <input type="checkbox" id="check-consentimiento">
+          <span>Acepto participar voluntariamente en esta investigación</span>
+        </label>
+
+        <button class="btn btn-primario" id="btn-comenzar" disabled>Comenzar entrevista</button>
+
+        <p class="contacto-previo">
+          Investigador responsable: Miguel Ángel Orrego Rodríguez · Universidad de Antioquia ·
+          miguel.orrego@udea.edu.co
+        </p>
+      </div>
+    </section>
+
+    <!-- VISTA 2: ENTREVISTA -->
+    <section id="pantalla-formulario" style="display:none">
+      <div class="barra-fija">
+        <div class="progreso-info">
+          <span id="texto-progreso">0 de 0 preguntas respondidas</span>
+          <span class="mini-leyenda">💾 Sus respuestas se guardan automáticamente en este dispositivo</span>
+        </div>
+        <div class="progreso-pista"><div class="progreso-relleno" id="progreso-relleno"></div></div>
+      </div>
+
+      <div class="seccion">
+        <div class="aviso-borrador" id="aviso-borrador">📝 Se restauró un borrador de su sesión anterior en este dispositivo.</div>
+        <div class="aviso-obligatorio">⚠️ Todas las preguntas de la entrevista son de respuesta obligatoria. No podrá enviar sus respuestas hasta completarlas todas.</div>
+        <div class="instrucciones">
+          <strong>Instrucciones:</strong> Responda cada pregunta con la extensión que considere necesaria.
+          Las casillas <strong>"Sonda"</strong> son orientaciones opcionales para enriquecer su respuesta, no preguntas adicionales obligatorias.
+          Sus respuestas se guardan automáticamente en este dispositivo, por lo que puede cerrar y continuar más tarde.
+        </div>
+
+        <form id="formulario" novalidate autocomplete="off">
+        </form>
+      </div>
+    </section>
+
+    <!-- VISTA 3: AGRADECIMIENTO -->
+    <section class="gracias" id="pantalla-gracias" style="display:none">
+      <div class="icono">✅</div>
+      <h2>¡Gracias por su participación!</h2>
+      <p>Agradecemos su participación y el tiempo dedicado para responder esta entrevista.<br>Sus respuestas son fundamentales para esta investigación.</p>
+      <div class="contacto">
+        <strong>Investigador responsable:</strong><br>
+        Miguel Ángel Orrego Rodríguez<br>
+        Universidad de Antioquia<br>
+        miguel.orrego@udea.edu.co
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+// ⚠️ ⚠️ ⚠️ PEGUE AQUÍ LA URL NUEVA de la entrevista (termina en /exec) ⚠️ ⚠️ ⚠️
+// ⚠️ NO use la URL del cuestionario de estudiantes: son sistemas separados
+var URL_SCRIPT = 'PEGA_AQUI_LA_URL_NUEVA_DE_LA_ENTREVISTA';
+
+// ════════ DIMENSIÓN I: Caracterización del docente ════════
+var CARACTERIZACION = [
+  { tipo:'texto',  id:'DG0', codigo:'CodEnt', etiqueta:'Código de entrevista (opcional)', obligatoria:false, placeholder:'Si el investigador le asignó un código, escríbalo aquí' },
+  { tipo:'texto',  id:'DG1', codigo:'DG1', etiqueta:'1. Área de formación', obligatoria:true, placeholder:'Ej.: Química, Farmacia, Biología…' },
+  { tipo:'texto',  id:'DG2', codigo:'DG2', etiqueta:'2. Máximo título académico', obligatoria:true, placeholder:'Ej.: Doctorado, Maestría…' },
+  { tipo:'texto',  id:'DG3', codigo:'DG3', etiqueta:'3. Años de experiencia como docente', obligatoria:true, placeholder:'Ej.: 12' },
+  { tipo:'opcion', id:'DG4', codigo:'DG4', etiqueta:'4. Nivel de formación en el que enseña', obligatoria:true, opciones:['Pregrado','Posgrado','Ambos'] },
+  { tipo:'opcion', id:'DG5', codigo:'DG5', etiqueta:'5. Asignatura que orienta', obligatoria:true, opciones:['Química Orgánica','Bioquímica','Ambas'] },
+  { tipo:'opcion', id:'DG6', codigo:'DG6', etiqueta:'6. ¿Ha recibido formación o capacitación previa sobre sustancias psicoactivas (SPA)?', obligatoria:true, opciones:['Sí','No'] }
+];
+
+// ════════ Dimensiones II a X: preguntas abiertas ════════
+var PREGUNTAS = [
+  { num:'II', titulo:'Enseñanza de la química orgánica y bioquímica desde el enfoque de las CSC',
+    items:[
+      { id:'P1', n:'1', texto:'¿Cómo desarrolla actualmente los contenidos de la asignatura de Química Orgánica y/o Bioquímica con sus estudiantes?',
+        sonda:'Sonda 1: ¿Podría mencionar alguna estrategia didáctica específica que utilice con frecuencia?<br>Sonda 2: ¿Cómo evalúa el aprendizaje de estos contenidos?' },
+      { id:'P2', n:'2', texto:'¿Cuáles son las principales dificultades que observa en los estudiantes para aprender estos contenidos?' },
+      { id:'P3', n:'3', texto:'¿Qué estrategias utiliza para facilitar la comprensión de conceptos complejos de la Química Orgánica y/o Bioquímica?' }
+    ]},
+  { num:'III', titulo:'Las SPA en educación superior desde el enfoque de las CSC',
+    items:[
+      { id:'P4', n:'4', texto:'¿Qué opinión tiene acerca de la integración de la química de las sustancias psicoactivas desde un enfoque interdisciplinario en la educación superior?',
+        sonda:'Sonda: ¿Podría mencionar alguna disciplina que considere importante para este enfoque interdisciplinario?' },
+      { id:'P5', n:'5', texto:'¿Considera que este tema es pertinente en la formación universitaria? ¿Por qué?' },
+      { id:'P6', n:'6', texto:'¿Ha incorporado alguna vez este tipo de temáticas sociocientíficas en sus clases?',
+        sonda:'Si su respuesta es afirmativa: ¿cómo lo ha hecho? Si es negativa: ¿qué barreras o limitaciones identificaría para incorporarlas?' },
+      { id:'P7', n:'7', texto:'¿Qué relación, si alguna, observa entre esta formación y la prevención del consumo de sustancias psicoactivas en los cursos de Química Orgánica y/o Bioquímica?' }
+    ]},
+  { num:'IV', titulo:'Valoración educativa de la química de las SPA como CSC',
+    items:[
+      { id:'P8',  n:'8',  texto:'¿Qué contribuciones podría generar el estudio de las sustancias psicoactivas desde un enfoque sociocientífico en la formación científica de los estudiantes?' },
+      { id:'P9',  n:'9',  texto:'¿Cómo podría contribuir la integración de la química de las sustancias psicoactivas como cuestiones sociocientíficas al desarrollo del pensamiento crítico y la toma de decisiones informadas en los estudiantes?' },
+      { id:'P10', n:'10', texto:'¿Considera que el estudio de las sustancias psicoactivas desde un enfoque sociocientífico beneficia la articulación de los contenidos de la Química Orgánica o Bioquímica con las problemáticas sociales actuales? ¿De qué manera, o por qué?' }
+    ]},
+  { num:'V', titulo:'Contexto sociocultural del consumo desde el enfoque de las CSC',
+    nota:'Nota metodológica: En esta dimensión se solicita al docente que opine sobre las percepciones de los estudiantes, actuando como informante indirecto. Esta aproximación es válida metodológicamente y permite acceder a la perspectiva del docente sobre el fenómeno con fines de triangulación con los instrumentos aplicados directamente a los estudiantes.',
+    items:[
+      { id:'P11', n:'11', texto:'¿Cómo percibe la influencia del entorno social en la percepción de riesgo del consumo de SPA entre los estudiantes?' },
+      { id:'P12', n:'12', texto:'¿Cómo influyen los pares en la construcción de las percepciones sobre el consumo de sustancias psicoactivas en el contexto universitario?' },
+      { id:'P13', n:'13', texto:'¿Qué representaciones sociales considera que contribuyen a normalizar el consumo de sustancias psicoactivas entre los estudiantes universitarios?' }
+    ]},
+  { num:'VI', titulo:'Motivaciones y representaciones del consumo desde el enfoque de las CSC',
+    nota:'Nota metodológica: Similar a la Dimensión V, el docente actúa como informante indirecto (triangulación).',
+    items:[
+      { id:'P14', n:'14', texto:'¿Qué motivaciones cree que influyen en el consumo de SPA entre los estudiantes?' },
+      { id:'P15', n:'15', texto:'¿Qué papel opina usted que cumple la curiosidad por las SPA en el fenómeno del consumo?' },
+      { id:'P16', n:'16', texto:'¿De qué modo se asocia —o no— el consumo de sustancias psicoactivas con actividades recreativas o procesos de integración social?' }
+    ]},
+  { num:'VII', titulo:'Factores sociocognitivos del consumo desde el enfoque de las CSC',
+    nota:'Nota metodológica: El docente actúa como informante indirecto sobre los imaginarios, creencias y percepciones de los estudiantes (triangulación).',
+    items:[
+      { id:'P17', n:'17', texto:'¿Qué imaginarios sociales, creencias y percepciones considera que tienen los estudiantes acerca de las sustancias psicoactivas (SPA)?' },
+      { id:'P18', n:'18', texto:'¿Considera que existe permisividad social frente a algunas sustancias psicoactivas? En caso afirmativo, ¿cuáles? (Especifique si se refiere a sustancias legales, ilegales o ambas).' },
+      { id:'P19', n:'19', texto:'¿De qué manera considera que la facilidad de acceso a las sustancias psicoactivas (SPA) influye en la percepción de riesgo que tienen los estudiantes sobre su consumo?' },
+      { id:'P20', n:'20', texto:'¿Qué relación observa, si alguna, entre el consumo de sustancias psicoactivas (SPA) y la popularidad entre los estudiantes? ¿Por qué?' }
+    ]},
+  { num:'VIII', titulo:'Formación docente para la enseñanza de SPA como CSC',
+    items:[
+      { id:'P21', n:'21', texto:'¿Qué herramientas necesitaría para enseñar la química de las SPA en sus asignaturas?' },
+      { id:'P22', n:'22', texto:'¿Qué tipo de formación (científica, pedagógica o en salud pública) considera necesaria para enseñar adecuadamente el fenómeno del consumo de sustancias psicoactivas (SPA) entre los estudiantes?' },
+      { id:'P23', n:'23', texto:'¿Qué rol cree que debe tener la universidad frente a la educación sobre el consumo y la química de las SPA?' }
+    ]},
+  { num:'IX', titulo:'Integración curricular de SPA como CSC',
+    items:[
+      { id:'P24', n:'24', texto:'¿Qué posibilidades identifica para integrar la química de las SPA en los cursos de Química Orgánica y Bioquímica?' },
+      { id:'P25', n:'25', texto:'¿Qué barreras o limitaciones pueden incidir en la inclusión de las SPA al currículo?',
+        sonda:'Sonda: ¿Estas limitaciones son de tipo institucional, de tiempo, de formación docente o de otra índole?' },
+      { id:'P26', n:'26', texto:'¿Qué enfoques considera más adecuados para articular la enseñanza de la química de las SPA con la educación sobre sus riesgos y el consumo?' }
+    ]},
+  { num:'X', titulo:'Función que desempeña la educación química como CSC',
+    items:[
+      { id:'P27', n:'27', texto:'¿Puede, y en qué medida, la enseñanza de la química de las SPA modificar las percepciones de los estudiantes acerca de estas sustancias? ¿Cómo?' },
+      { id:'P28', n:'28', texto:'¿Qué estrategias pedagógicas y didácticas considera más pertinentes para enseñar el tema de la química de las sustancias psicoactivas (SPA) en el contexto educativo?' }
+    ]}
+];
+
+var enviado = false;
+var CLAVE_BORRADOR = 'borrador_entrevista_spa';
+var temporizador = null;
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function valorOpcion(id){ var s=document.querySelector('input[name="'+id+'"]:checked'); return s ? s.value : null; }
+
+function construirFormulario(){
+  var form = document.getElementById('formulario');
+  var h = '';
+
+  // Dimensión I
+  h += '<div class="dimension"><div class="dimension-cabecera"><h3>Dimensión I. Caracterización del docente</h3><p class="nota">Esta dimensión corresponde a datos descriptivos del docente participante.</p></div><div class="dimension-cuerpo">';
+  CARACTERIZACION.forEach(function(d){
+    h += '<div class="campo" id="campo-'+d.id+'"><p class="campo-etiqueta">'+esc(d.etiqueta)+(d.obligatoria?' <span class="req">*</span>':'')+'</p>';
+    if(d.tipo==='texto'){
+      h += '<input type="text" id="'+d.id+'" placeholder="'+esc(d.placeholder||'')+'">';
+    } else {
+      h += '<div class="opciones">' + d.opciones.map(function(op){
+        return '<label class="opcion"><input type="radio" name="'+d.id+'" value="'+esc(op)+'"><span>'+esc(op)+'</span></label>';
+      }).join('') + '</div>';
+    }
+    h += '<p class="error-msg">Esta pregunta es obligatoria.</p></div>';
+    if(d.id==='DG6'){
+      h += '<div class="campo" id="campo-DG6b" style="display:none"><p class="campo-etiqueta">En caso afirmativo, especifique: <span class="req">*</span></p>'+
+      '<input type="text" id="DG6b" placeholder="Ej.: curso, diplomado, seminario, capacitación…">'+
+      '<p class="error-msg">Especifique la formación o capacitación recibida.</p></div>';
+    }
+  });
+  h += '</div></div>';
+
+  // Dimensiones II a X
+  PREGUNTAS.forEach(function(dim){
+    h += '<div class="dimension"><div class="dimension-cabecera"><h3>Dimensión '+dim.num+'. '+esc(dim.titulo)+'</h3>';
+    if(dim.nota) h += '<p class="nota">'+esc(dim.nota)+'</p>';
+    h += '</div><div class="dimension-cuerpo">';
+    dim.items.forEach(function(it){
+      h += '<div class="item" id="campo-'+it.id+'"><p class="item-texto"><span class="item-num">'+it.n+'.</span> '+esc(it.texto)+' <span class="req">*</span></p>';
+      if(it.sonda) h += '<div class="sonda">'+it.sonda+'</div>';
+      h += '<textarea id="'+it.id+'" rows="4" placeholder="Escriba su respuesta aquí…"></textarea>'+
+      '<p class="error-msg">Esta pregunta es obligatoria.</p></div>';
+    });
+    h += '</div></div>';
+  });
+
+  h += '<button type="submit" class="btn btn-primario" id="btn-enviar">Enviar respuestas</button>';
+  form.innerHTML = h;
+}
+
+// ---------- Progreso ----------
+function totalRequeridas(){
+  var t = 0;
+  CARACTERIZACION.forEach(function(d){ if(d.obligatoria) t++; });
+  if(valorOpcion('DG6')==='Sí') t++;
+  PREGUNTAS.forEach(function(dim){ t += dim.items.length; });
+  return t;
+}
+function respondidasRequeridas(){
+  var n = 0;
+  CARACTERIZACION.forEach(function(d){
+    if(!d.obligatoria) return;
+    if(d.tipo==='texto'){ if(document.getElementById(d.id).value.trim()!=='') n++; }
+    else if(valorOpcion(d.id)) n++;
+  });
+  if(valorOpcion('DG6')==='Sí' && document.getElementById('DG6b').value.trim()!=='') n++;
+  PREGUNTAS.forEach(function(dim){
+    dim.items.forEach(function(it){ if(document.getElementById(it.id).value.trim()!=='') n++; });
+  });
+  return n;
+}
+function actualizarProgreso(){
+  var total = totalRequeridas(), hechas = respondidasRequeridas();
+  document.getElementById('texto-progreso').textContent = hechas + ' de ' + total + ' preguntas respondidas';
+  document.getElementById('progreso-relleno').style.width = Math.round(hechas/total*100) + '%';
+}
+
+// ---------- Validación ----------
+function marcar(div, ok){ div.classList.toggle('invalida', !ok); }
+function validar(){
+  var primera = null;
+  CARACTERIZACION.forEach(function(d){
+    var div = document.getElementById('campo-'+d.id);
+    var ok = true;
+    if(d.obligatoria){
+      if(d.tipo==='texto') ok = document.getElementById(d.id).value.trim()!=='';
+      else ok = !!valorOpcion(d.id);
+    }
+    marcar(div, ok); if(!ok && !primera) primera = div;
+  });
+  var divb = document.getElementById('campo-DG6b');
+  if(valorOpcion('DG6')==='Sí'){
+    var okb = document.getElementById('DG6b').value.trim()!=='';
+    marcar(divb, okb); if(!okb && !primera) primera = divb;
+  } else { marcar(divb, true); }
+  PREGUNTAS.forEach(function(dim){
+    dim.items.forEach(function(it){
+      var div = document.getElementById('campo-'+it.id);
+      var ok = document.getElementById(it.id).value.trim()!=='';
+      marcar(div, ok); if(!ok && !primera) primera = div;
+    });
+  });
+  if(primera){ primera.scrollIntoView({behavior:'smooth', block:'center'}); return false; }
+  return true;
+}
+
+// ---------- Recolección ----------
+function recoger(){
+  var r = {};
+  CARACTERIZACION.forEach(function(d){
+    if(d.tipo==='texto'){ r[d.codigo] = document.getElementById(d.id).value.trim(); }
+    else { r[d.codigo] = valorOpcion(d.id) || ''; }
+  });
+  r['DG6b'] = document.getElementById('DG6b').value.trim();
+  PREGUNTAS.forEach(function(dim){
+    dim.items.forEach(function(it){ r[it.id] = document.getElementById(it.id).value.trim(); });
+  });
+  return r;
+}
+function construirClave(){
+  var c = [];
+  CARACTERIZACION.forEach(function(d){ c.push({codigo:d.codigo, enunciado:d.etiqueta, dimension:'I. Caracterización del docente'}); });
+  c.push({codigo:'DG6b', enunciado:'Especifique la formación o capacitación previa recibida sobre SPA (condicional a la pregunta 6)', dimension:'I. Caracterización del docente'});
+  PREGUNTAS.forEach(function(dim){
+    dim.items.forEach(function(it){ c.push({codigo:it.id, enunciado:it.n+'. '+it.texto, dimension:dim.num+'. '+dim.titulo}); });
+  });
+  return c;
+}
+
+// ---------- Borrador automático ----------
+function guardarBorrador(){
+  clearTimeout(temporizador);
+  temporizador = setTimeout(function(){
+    try{
+      var estado = {};
+      var form = document.getElementById('formulario');
+      form.querySelectorAll('input[type=text],textarea').forEach(function(el){ if(el.id) estado[el.id] = el.value; });
+      form.querySelectorAll('input[type=radio]').forEach(function(el){ estado['r:'+el.name+':'+el.value] = el.checked; });
+      localStorage.setItem(CLAVE_BORRADOR, JSON.stringify(estado));
+    }catch(e){}
+  }, 600);
+}
+function restaurarBorrador(){
+  try{
+    var raw = localStorage.getItem(CLAVE_BORRADOR);
+    if(!raw) return;
+    var estado = JSON.parse(raw);
+    var hayDatos = false;
+    Object.keys(estado).forEach(function(k){ if(estado[k]!=='' && estado[k]!==false) hayDatos = true; });
+    if(!hayDatos) return;
+    Object.keys(estado).forEach(function(k){
+      if(k.indexOf('r:')===0){
+        var p = k.substring(2).split(':');
+        var el = document.querySelector('input[name="'+p[0]+'"][value="'+p[1]+'"]');
+        if(el) el.checked = estado[k];
+      } else {
+        var el2 = document.getElementById(k);
+        if(el2) el2.value = estado[k];
+      }
+    });
+    var esp = document.getElementById('campo-DG6b');
+    if(esp) esp.style.display = (valorOpcion('DG6')==='Sí') ? 'block' : 'none';
+    actualizarProgreso();
+    document.getElementById('aviso-borrador').style.display = 'block';
+  }catch(e){}
+}
+
+// ---------- Envío ----------
+function enviar(e){
+  e.preventDefault();
+  if(URL_SCRIPT.indexOf('PEGA_AQUI')!==-1){
+    alert('Falta configurar la URL del script de la ENTREVISTA (vea la linea var URL_SCRIPT).');
+    return;
+  }
+  if(!validar()) return;
+  var btn = document.getElementById('btn-enviar');
+  btn.disabled = true; btn.textContent = 'Enviando…';
+  fetch(URL_SCRIPT, {
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body: JSON.stringify({ respuestas: recoger(), clave: construirClave() })
+  })
+  .then(function(res){ return res.json(); })
+  .then(function(data){
+    if(data.status!=='success') throw new Error(data.message||'Error');
+    enviado = true;
+    try{ localStorage.removeItem(CLAVE_BORRADOR); }catch(e){}
+    document.getElementById('pantalla-formulario').style.display = 'none';
+    document.getElementById('pantalla-gracias').style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  })
+  .catch(function(){
+    alert('No se pudo enviar. Verifique su conexión e inténtelo de nuevo.');
+    btn.disabled = false; btn.textContent = 'Enviar respuestas';
+  });
+}
+
+// ---------- Inicio ----------
+document.addEventListener('DOMContentLoaded', function(){
+  construirFormulario();
+  restaurarBorrador();
+  actualizarProgreso();
+  document.getElementById('sello-listo').style.display = 'block';
+
+  var check = document.getElementById('check-consentimiento');
+  var btnComenzar = document.getElementById('btn-comenzar');
+  check.addEventListener('change', function(){ btnComenzar.disabled = !check.checked; });
+  btnComenzar.addEventListener('click', function(){
+    document.getElementById('pantalla-consentimiento').style.display = 'none';
+    document.getElementById('pantalla-formulario').style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  var form = document.getElementById('formulario');
+  form.addEventListener('change', function(e){
+    var cont = e.target.closest('.campo') || e.target.closest('.item');
+    if(cont) cont.classList.remove('invalida');
+    if(e.target.name){
+      var grupo = form.querySelectorAll('input[name="'+e.target.name+'"]');
+      grupo.forEach(function(g){
+        var lab = g.parentElement;
+        if(lab && lab.classList.contains('opcion')) lab.classList.toggle('opcion-seleccionada', g.checked);
+      });
+    }
+    if(e.target.name==='DG6'){
+      document.getElementById('campo-DG6b').style.display = (valorOpcion('DG6')==='Sí') ? 'block' : 'none';
+    }
+    actualizarProgreso();
+    guardarBorrador();
+  });
+  form.addEventListener('input', function(e){
+    var cont = e.target.closest('.campo') || e.target.closest('.item');
+    if(cont) cont.classList.remove('invalida');
+    actualizarProgreso();
+    guardarBorrador();
+  });
+  form.addEventListener('submit', enviar);
+
+  window.addEventListener('beforeunload', function(e){
+    if(enviado) return;
+    var pant = document.getElementById('pantalla-formulario');
+    if(pant.style.display!=='none' && respondidasRequeridas()>0){ e.preventDefault(); e.returnValue=''; }
+  });
+});
+</script>
+</body>
+</html>
